@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Playlist Secure</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 20px;
+    background: #111;
+    font-family: Arial, sans-serif;
+  }
+
+  .youtube-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .youtube-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  /* منع الضغط على زر يوتيوب */
+  .block-youtube {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 80px;
+    z-index: 10;
+    background: transparent;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="youtube-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/videoseries?list=PLjLTHvFUYuHc_d2ljbRA2o8tlZ2fyN6T7&controls=1&modestbranding=1&rel=0&fs=1"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+
+  <!-- طبقة منع الانتقال ليوتيوب -->
+  <div class="block-youtube"></div>
+</div>
+
+<script>
+  // منع كليك يمين
+  document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+  });
+</script>
+
+</body>
+</html>
